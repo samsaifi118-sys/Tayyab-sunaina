@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tayyab ❤️ Sunaina</title>
+<style>
+  body { margin:0; padding:0; font-family:sans-serif; background:#ffedf0; overflow-x:hidden; text-align:center; }
+  h1 { margin-top:20px; color:#e91e63; }
+  #letter { margin: 20px auto; width: 90%; max-width: 600px; font-size:18px; line-height:1.5; color:#444; min-height:150px; }
+  .photo-gallery { display:flex; flex-wrap:wrap; justify-content:center; gap:10px; margin-top:20px; }
+  .photo-gallery img { width:45%; border-radius:15px; box-shadow:0 4px 10px rgba(0,0,0,0.2); }
+  video { width:90%; max-width:500px; border-radius:15px; margin-top:20px; }
+  .hearts { position:fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; overflow:hidden; }
+  .heart { position:absolute; width:20px; height:20px; background:red; transform:rotate(45deg); animation:float 5s linear infinite; }
+  .heart:before, .heart:after { content:''; position:absolute; width:20px; height:20px; background:red; border-radius:50%; }
+  .heart:before { top:-10px; left:0; }
+  .heart:after { left:10px; top:0; }
+  @keyframes float { 0% { transform:translateY(0) rotate(45deg); } 100% { transform:translateY(-100vh) rotate(45deg); } }
+  .popup { position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); background:#fff0f5; border:2px solid #e91e63; padding:30px; border-radius:15px; display:none; z-index:9999; }
+  .popup h2 { color:#e91e63; }
+  .popup button { margin-top:20px; padding:10px 20px; border:none; border-radius:10px; background:#e91e63; color:white; font-size:16px; cursor:pointer; }
+</style>
+</head>
+<body>
+
+<h1>💖 Tayyab ❤️ Sunaina 💖</h1>
+<div id="letter"></div>
+<video src="https://www.w3schools.com/html/mov_bbb.mp4" autoplay muted loop controls></video>
+<div class="photo-gallery">
+<img src="https://images.unsplash.com/photo-1517841905240-472988babdf9" alt="photo1">
+<img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e" alt="photo2">
+<img src="https://images.unsplash.com/photo-1509228627151-51f0aa1ed9a8" alt="photo3">
+<img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce" alt="photo4">
+<img src="https://images.unsplash.com/photo-1503264116251-35a269479413" alt="photo5">
+</div>
+<div class="hearts"></div>
+<audio autoplay loop src="https://www.bensound.com/bensound-music/bensound-romantic.mp3"></audio>
+
+<div class="popup" id="popup">
+<h2>Will you be my Valentine? ❤️</h2>
+<button onclick="closePopup()">Yes 💖</button>
+</div>
+
+<script>
+// Typewriter Love Letter
+const letterText = `Dear Sunaina,
+
+Jab se tum meri life me aayi ho, sab kuch special lagta hai.
+Har pal tumhari muskaan mere dil ko chhu jaati hai.
+Meri zindagi tumhare bina adhoori hai.
+
+Click the button below for a surprise! ❤️`;
+const letterDiv = document.getElementById('letter');
+let i=0;
+function typeLetter(){
+  if(i<letterText.length){
+    letterDiv.innerHTML += letterText.charAt(i)=='
+'?'<br>':letterText.charAt(i);
+    i++;
+    setTimeout(typeLetter,50);
+  }
+}
+typeLetter();
+
+// Hearts animation
+function createHeart(){
+  const heart = document.createElement('div');
+  heart.className='heart';
+  heart.style.left=Math.random()*100+'%';
+  heart.style.animationDuration=3+Math.random()*2+'s';
+  document.querySelector('.hearts').appendChild(heart);
+  setTimeout(()=>{heart.remove();},5000);
+}
+setInterval(createHeart,300);
+
+// Popup
+const popup = document.getElementById('popup');
+setTimeout(()=>{ popup.style.display='block'; }, 6000);
+function closePopup(){ popup.style.display='none'; alert('Yay! 💖 Sunaina says YES!'); }
+</script>
+
+</body>
+</html>
