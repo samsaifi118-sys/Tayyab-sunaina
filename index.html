@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tayyab ❤️ Sunaina</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body{
+      margin:0;font-family:Segoe UI,sans-serif;
+      background:linear-gradient(135deg,#ff2f68,#ff8fab);
+      color:#fff;text-align:center;overflow-x:hidden;
+    }
+    .container{padding:30px;position:relative;z-index:2}
+    h1{font-size:42px;margin:10px 0}
+    p{font-size:18px;line-height:1.7}
+    .card{background:rgba(255,255,255,.18);border-radius:25px;padding:25px;margin:25px 0}
+    button{padding:15px 30px;font-size:18px;border-radius:30px;border:none;cursor:pointer;margin:10px}
+    .yes{background:#fff;color:#ff2f68}
+    .no{background:#ff2f68;color:#fff;position:absolute}
+    .heart{position:fixed;bottom:-10px;font-size:20px;animation:float 6s linear infinite;opacity:.7}
+    @keyframes float{to{transform:translateY(-110vh);opacity:0}}
+    #celebrate{display:none}
+    .confetti{position:fixed;top:-10px;width:8px;height:14px;animation:fall 3s linear infinite}
+    @keyframes fall{to{transform:translateY(110vh) rotate(360deg)}}
+  </style>
+</head>
+
+<body>
+
+<audio autoplay loop>
+  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3" type="audio/mpeg">
+</audio>
+
+<div class="container" id="main">
+  <h1>Tayyab ❤️ Sunaina</h1>
+
+  <div class="card">
+    <p>
+      Sunaina,<br><br>
+      Tum meri life ka sabse khoobsurat chapter ho 💖<br>
+      Tumhare saath har pal ek celebration hai ✨
+    </p>
+  </div>
+
+  <div class="card" style="position:relative;">
+    <h2>Sunaina, will you be my Valentine? 💍</h2>
+    <button class="yes" onclick="yesClick()">YES ❤️</button>
+    <button class="no" id="noBtn" onmouseover="moveNo()">NO 🙈</button>
+  </div>
+</div>
+
+<div class="container" id="celebrate">
+  <h1>SHE SAID YES! 🎉💍</h1>
+  <p>Sunaina ❤️ Thank you for making me the happiest person alive 😭💖</p>
+</div>
+
+<script>
+  setInterval(()=>{
+    const h=document.createElement("div");
+    h.className="heart";h.innerHTML="❤️";
+    h.style.left=Math.random()*100+"vw";
+    document.body.appendChild(h);
+    setTimeout(()=>h.remove(),6000);
+  },250);
+
+  function moveNo(){
+    const b=document.getElementById("noBtn");
+    b.style.left=Math.random()*220+"px";
+    b.style.top=Math.random()*120+"px";
+  }
+
+  function yesClick(){
+    document.getElementById("main").style.display="none";
+    document.getElementById("celebrate").style.display="block";
+    for(let i=0;i<120;i++){
+      const c=document.createElement("div");
+      c.className="confetti";
+      c.style.left=Math.random()*100+"vw";
+      c.style.background=["#fff","#ffd1dc","#ff2f68","#ffe66d"][Math.floor(Math.random()*4)];
+      c.style.animationDuration=(2+Math.random()*2)+"s";
+      document.body.appendChild(c);
+      setTimeout(()=>c.remove(),3000);
+    }
+  }
+</script>
+
+</body>
+</html>
